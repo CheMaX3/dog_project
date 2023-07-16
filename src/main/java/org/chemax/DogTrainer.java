@@ -1,45 +1,40 @@
 package org.chemax;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class DogTrainer {
 
+    @Value("${dogTrainer.name}")
     private String name;
 
+    @Value("${dogTrainer.age}")
     private int age;
 
-    private Dog dog;
+    private Dog dog1;
 
-    public DogTrainer() {
+    private Dog dog2;
+
+    @Autowired
+    public DogTrainer(@Qualifier("alabai") Dog dog1,
+                      @Qualifier("korgi") Dog dog2) {
+        this.dog1 = dog1;
+        this.dog2 = dog2;
     }
 
-    public DogTrainer(Dog dog) {
-        this.dog = dog;
+    public void trainDog() {
+        System.out.println(dog1.getBark());
+        System.out.println(dog2.getBark());
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void trainDog() {
-        System.out.println(dog.getBark());
-    }
-
-    public Dog getDog() {
-        return dog;
-    }
-
-    public void setDog(Dog dog) {
-        this.dog = dog;
     }
 }

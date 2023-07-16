@@ -7,11 +7,11 @@ public class TestSpring {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        DogTrainer dogTrainer = context.getBean("dogTrainerBean", DogTrainer.class);
-
-        System.out.println(dogTrainer.getAge());
-        System.out.println(dogTrainer.getName());
+        DogTrainer dogTrainer = context.getBean("dogTrainer", DogTrainer.class);
         dogTrainer.trainDog();
+
+        System.out.println(dogTrainer.getName());
+        System.out.println(dogTrainer.getAge());
 
         context.close();
     }

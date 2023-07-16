@@ -7,20 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="org.chemax" />
     <context:property-placeholder location="classpath:dogTrainer.properties"/>
-
-    <bean id="alabaiBean"
-          class="org.chemax.Alabai"
-          init-method="initAlabai"
-          destroy-method="destroyAlabai"
-          factory-method="getAlabai">
-    </bean>
-
-    <bean id="dogTrainerBean"
-          class="org.chemax.DogTrainer">
-        <property name="dog" ref="alabaiBean"/>
-        <property name="name" value="${dogTrainer.name}"/>
-        <property name="age" value="${dogTrainer.age}"/>
-    </bean>
 
 </beans>

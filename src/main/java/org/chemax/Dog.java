@@ -4,5 +4,7 @@ public interface Dog {
 
     String getBark();
 
-    String getBreed();
+    void init();
+
+    void destroy();
 }
