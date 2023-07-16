@@ -1,14 +1,11 @@
 package org.chemax;
 
-import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
 public class Alabai implements Dog {
 
-    private Alabai() {
+    public Alabai() {
     }
 
     @PostConstruct

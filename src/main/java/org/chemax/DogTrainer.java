@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
 public class DogTrainer {
 
     @Value("${dogTrainer.name}")
@@ -19,8 +18,8 @@ public class DogTrainer {
     private Dog dog2;
 
     @Autowired
-    public DogTrainer(@Qualifier("alabai") Dog dog1,
-                      @Qualifier("korgi") Dog dog2) {
+    public DogTrainer(@Qualifier("beanAlabai") Dog dog1,
+                      @Qualifier("beanKorgi") Dog dog2) {
         this.dog1 = dog1;
         this.dog2 = dog2;
     }
